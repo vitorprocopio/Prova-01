@@ -2,14 +2,20 @@ package br.com.contmatic.hora;
 
 import java.time.LocalTime;
 
+import javax.validation.constraints.NotNull;
+
 public class Horario {
     
+	@NotNull(message = "Não deve conter entrada nula")
     private LocalTime entrada;
     
+	@NotNull(message = "Não deve conter saida para o almoço nula")
     private LocalTime saidaAlmoco;
     
+	@NotNull(message = "Não deve conter retorno para o almoço nulo")
     private LocalTime retornoAlmoco;
     
+	@NotNull(message = "Não deve conter saída nula")
     private LocalTime saida;
     
     public Horario(LocalTime entrada, LocalTime saidaAlmoco, LocalTime retornoAlmoco, LocalTime saida) {
@@ -24,70 +30,70 @@ public class Horario {
     }
 
     public void setEntrada(LocalTime entrada) {
-        verificaHorarioNulo(entrada);
-        verificaEntrada(entrada);
+//        verificaHorarioNulo(entrada);
+//        verificaEntrada(entrada);
         this.entrada = entrada;
     }
 
-    private void verificaEntrada(LocalTime entrada) {
-        if(entrada.isBefore(LocalTime.of(07, 00, 00)) || entrada.isAfter(LocalTime.of(18, 00, 00))) {
-           throw new IllegalArgumentException("Coloque um horário entre 07:00:00 e 18:00:00"); 
-        }
-    }
-
-    private void verificaHorarioNulo(LocalTime campo) {
-        if(campo == null) {
-            throw new IllegalArgumentException("O campo não deve ser nulo");
-        }
-    }
+//    private void verificaEntrada(LocalTime entrada) {
+//        if(entrada.isBefore(LocalTime.of(07, 00, 00)) || entrada.isAfter(LocalTime.of(18, 00, 00))) {
+//           throw new IllegalArgumentException("Coloque um horário entre 07:00:00 e 18:00:00"); 
+//        }
+//    }
+//
+//    private void verificaHorarioNulo(LocalTime campo) {
+//        if(campo == null) {
+//            throw new IllegalArgumentException("O campo não deve ser nulo");
+//        }
+//    }
 
     public LocalTime getSaidaAlmoco() {
         return saidaAlmoco;
     }
 
     public void setSaidaAlmoco(LocalTime saidaAlmoco) {
-        verificaHorarioNulo(saidaAlmoco);
-        verificaSaidaAlmoco(saidaAlmoco);
+//        verificaHorarioNulo(saidaAlmoco);
+//        verificaSaidaAlmoco(saidaAlmoco);
         this.saidaAlmoco = saidaAlmoco;
     }
-
-    private void verificaSaidaAlmoco(LocalTime saidaAlmoco) {
-        if(saidaAlmoco.isBefore(LocalTime.of(11, 00, 00)) || saidaAlmoco.isAfter(LocalTime.of(14, 00, 00))) {
-           throw new IllegalArgumentException("Coloque um horário entre 11:00:00 e 14:00:00"); 
-        }
-    }
+//
+//    private void verificaSaidaAlmoco(LocalTime saidaAlmoco) {
+//        if(saidaAlmoco.isBefore(LocalTime.of(11, 00, 00)) || saidaAlmoco.isAfter(LocalTime.of(14, 00, 00))) {
+//           throw new IllegalArgumentException("Coloque um horário entre 11:00:00 e 14:00:00"); 
+//        }
+//    }
 
     public LocalTime getRetornoAlmoco() {
         return retornoAlmoco;
     }
 
     public void setRetornoAlmoco(LocalTime retornoAlmoco) {
-        verificaHorarioNulo(retornoAlmoco);
-        verificaRetornoAlmoco(retornoAlmoco);
+//        verificaHorarioNulo(retornoAlmoco);
+//        verificaRetornoAlmoco(retornoAlmoco);
         this.retornoAlmoco = retornoAlmoco;
     }
 
-    private void verificaRetornoAlmoco(LocalTime retornoAlmoco) {
-        if(retornoAlmoco.isBefore(LocalTime.of(12, 00, 00)) || retornoAlmoco.isAfter(LocalTime.of(15, 00, 00))) {
-           throw new IllegalArgumentException("Coloque um horário entre 12:00:00 e 15:00:00"); 
-        }
-    }
+//    private void verificaRetornoAlmoco(LocalTime retornoAlmoco) {
+//        if(retornoAlmoco.isBefore(LocalTime.of(12, 00, 00)) || retornoAlmoco.isAfter(LocalTime.of(15, 00, 00))) {
+//           throw new IllegalArgumentException("Coloque um horário entre 12:00:00 e 15:00:00"); 
+//        }
+//    }
 
     public LocalTime getSaida() {
         return saida;
     }
 
     public void setSaida(LocalTime saida) {
-        verificaHorarioNulo(saida);
-        verificaSaida(saida);
+//        verificaHorarioNulo(saida);
+//        verificaSaida(saida);
         this.saida = saida;
     }
 
-    private void verificaSaida(LocalTime saida) {
-        if(saida.isBefore(LocalTime.of(8, 00, 00)) || saida.isAfter(LocalTime.of(20, 00, 00))) {
-           throw new IllegalArgumentException("Coloque um horário entre 8:00:00 e 20:00:00"); 
-        }
-    }
+//    private void verificaSaida(LocalTime saida) {
+//        if(saida.isBefore(LocalTime.of(8, 00, 00)) || saida.isAfter(LocalTime.of(20, 00, 00))) {
+//           throw new IllegalArgumentException("Coloque um horário entre 8:00:00 e 20:00:00"); 
+//        }
+//    }
 
     @Override
     public int hashCode() {
